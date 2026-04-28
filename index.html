@@ -3,128 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOLUCIONES.NET - Tienda de Tecnología</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>SOLUCIONES.NET - Tienda</title>
     <style>
-        :root {
-            --primary: #00d4ff;
-            --dark: #121212;
-            --card: #1e1e1e;
-            --text: #ffffff;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--dark);
-            color: var(--text);
-            margin: 0;
-            padding: 20px;
-        }
-
-        header {
-            text-align: center;
-            padding: 20px 0;
-            border-bottom: 2px solid var(--primary);
-            margin-bottom: 30px;
-        }
-
-        h1 { color: var(--primary); margin: 0; }
-        p.subtitle { opacity: 0.8; }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .product-card {
-            background: var(--card);
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            border: 1px solid #333;
-            transition: transform 0.3s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-        }
-
-        .product-card h3 { margin: 10px 0; }
-        .price { font-size: 1.5rem; color: var(--primary); font-weight: bold; }
-
-        button.add-btn {
-            background: var(--primary);
-            color: black;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            width: 100%;
-            margin-top: 15px;
-        }
-
-        .whatsapp-float {
-            background: #25d366;
-            color: white;
-            padding: 15px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 30px;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-        }
-
-        .cart-section {
-            background: #222;
-            padding: 20px;
-            border-radius: 15px;
-            margin-top: 40px;
-            border: 1px dashed var(--primary);
-        }
+        body { font-family: sans-serif; background-color: #121212; color: white; text-align: center; padding: 20px; }
+        .header { border-bottom: 2px solid #00d4ff; padding-bottom: 10px; margin-bottom: 30px; }
+        h1 { color: #00d4ff; }
+        .producto { background: #1e1e1e; border: 1px solid #333; padding: 15px; border-radius: 10px; margin-bottom: 15px; }
+        .btn-ws { background: #25d366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 10px; font-weight: bold; }
+        .precio { color: #00d4ff; font-size: 1.2rem; font-weight: bold; }
     </style>
 </head>
 <body>
-
-<div class="container">
-    <header>
+    <div class="header">
         <h1>SOLUCIONES.NET</h1>
-        <p class="subtitle">Servicio Técnico y Lo Mejor en Tecnología</p>
-    </header>
-
-    <div class="product-grid">
-        <div class="product-card">
-            <i class="fas fa-mobile-alt" style="font-size: 3rem; color: var(--primary);"></i>
-            <h3>Servicio Técnico</h3>
-            <p>Reparación de celulares y PC</p>
-            <p class="price">Consultar</p>
-            <button class="add-btn" onclick="agregarAlCarrito('Servicio Técnico')">Pedir Info</button>
-        </div>
-
-        <div class="product-card">
-            <i class="fas fa-watch" style="font-size: 3rem; color: var(--primary);"></i>
-            <h3>Smartwatches</h3>
-            <p>Modelos Soul y más</p>
-            <p class="price">$25.000</p>
-            <button class="add-btn" onclick="agregarAlCarrito('Smartwatch Soul')">Agregar</button>
-        </div>
+        <p>Servicio Técnico y Ventas en Corrientes</p>
     </div>
 
-    <div class="cart-section">
-        <h2>Mi Pedido</h2>
-        <ul id="lista-carrito">
-            <li>El carrito está vacío</li>
-        </ul>
-        <a href="#" id="whatsapp-link" class="whatsapp-float" onclick="enviarWhatsapp()">
-            <i class="fab fa-whatsapp"></i> Enviar Pedido a Oskar
-        </a>
+    <div class="producto">
+        <h3>Servicio Técnico Especializado</h3>
+        <p>Reparación de celulares, tablets y notebooks.</p>
+        <p class="precio">Consultar presupuesto</p>
+        <a href="https://wa.me/543794517852?text=Hola!%20Necesito%20presupuesto%20para%20un%20servicio%20técnico" class="btn-ws">Consultar por WhatsApp</a>
     </div>
-</d…
+
+    <div class="producto">
+        <h3>Smartwatch Series</h3>
+        <p>Lo último en tecnología para tu muñeca.</p>
+        <p class="precio">$25.000</p>
+        <a href="https://wa.me/543794517852?text=Hola!%20Me%20interesa%20el%20Smartwatch" class="btn-ws">Comprar ahora</a>
+    </div>
+</body>
+</html>
