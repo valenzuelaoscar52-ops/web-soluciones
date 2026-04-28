@@ -3,48 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOLUCIONES.NET - Tienda Oficial</title>
+    <title>SOLUCIONES.NET - Tienda Completa</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --primary: #00d4ff; --dark: #121212; --card: #1e1e1e; --success: #25d366; }
-        body { font-family: 'Segoe UI', sans-serif; background-color: var(--dark); color: white; margin: 0; padding-top: 60px; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: var(--dark); color: white; margin: 0; padding-top: 60px; overflow-x: hidden; }
         
         /* Navbar Superior Izquierda */
         nav { background: #000; padding: 10px 20px; display: flex; align-items: center; position: fixed; top: 0; width: 100%; z-index: 1000; border-bottom: 1px solid var(--primary); box-sizing: border-box; }
         .menu-icon { font-size: 24px; cursor: pointer; color: var(--primary); margin-right: 20px; }
         .logo { font-weight: bold; color: var(--primary); font-size: 1.2rem; }
 
-        /* Menú Desplegable */
-        .side-menu { position: fixed; top: 0; left: -280px; width: 280px; height: 100%; background: #000; transition: 0.3s; padding-top: 70px; z-index: 999; box-shadow: 2px 0 10px rgba(0,0,0,0.5); }
+        /* Menú Desplegable Mejorado */
+        .side-menu { position: fixed; top: 0; left: -280px; width: 280px; height: 100%; background: #000; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); padding-top: 70px; z-index: 999; box-shadow: 5px 0 15px rgba(0,0,0,0.7); }
+        .side-menu.open { left: 0; }
         .side-menu a { display: block; padding: 15px 25px; color: white; text-decoration: none; font-size: 16px; border-bottom: 1px solid #222; cursor: pointer; }
         .side-menu a:hover { background: var(--card); color: var(--primary); }
 
         /* Contenedor Principal */
         .container { padding: 20px; max-width: 1200px; margin: 0 auto; }
-        .category-title { color: var(--primary); border-left: 4px solid var(--primary); padding-left: 10px; margin: 30px 0 20px; text-transform: uppercase; }
+        .category-title { color: var(--primary); border-left: 4px solid var(--primary); padding-left: 10px; margin: 40px 0 20px; text-transform: uppercase; scroll-margin-top: 80px; }
 
-        /* Grilla de Productos */
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .producto { background: var(--card); border-radius: 15px; padding: 15px; border: 1px solid #333; display: flex; flex-direction: column; }
-        .producto img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 10px; }
+        /* Grilla de Productos - Imágenes Completas */
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .producto { background: var(--card); border-radius: 15px; padding: 15px; border: 1px solid #333; display: flex; flex-direction: column; transition: 0.3s; }
+        .producto:hover { border-color: var(--primary); }
         
-        /* Controles de Compra */
+        /* Ajuste para que la imagen no se corte */
+        .img-container { width: 100%; height: 250px; display: flex; align-items: center; justify-content: center; background: #000; border-radius: 10px; overflow: hidden; margin-bottom: 15px; }
+        .producto img { max-width: 100%; max-height: 100%; object-fit: contain; } /* 'contain' hace que se vea completa */
+        
+        /* Controles */
         .controls { margin-top: auto; padding-top: 10px; }
-        .stock-info { font-size: 0.8rem; color: #aaa; margin-bottom: 5px; }
-        .qty-input { width: 50px; padding: 5px; border-radius: 5px; border: none; margin-right: 10px; }
-        .btn-add { background: var(--primary); color: black; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; }
+        .qty-input { width: 60px; padding: 8px; border-radius: 5px; border: 1px solid #444; background: #000; color: white; margin-right: 10px; }
+        .btn-add { background: var(--primary); color: black; border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 10px; }
 
-        /* Carrito Floating */
+        /* Carrito Flotante */
         .cart-btn { position: fixed; bottom: 20px; right: 20px; background: var(--primary); color: black; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.5); z-index: 1001; }
         .cart-count { position: absolute; top: 0; right: 0; background: red; color: white; font-size: 12px; padding: 3px 7px; border-radius: 50%; }
 
         /* Modal Carrito */
-        #cart-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; padding: 20px; box-sizing: border-box; overflow-y: auto; }
-        .modal-content { background: var(--card); max-width: 500px; margin: 40px auto; padding: 20px; border-radius: 15px; }
-        .shipping-options { margin: 20px 0; text-align: left; }
-        .btn-finalize { background: var(--success); color: white; border: none; padding: 15px; border-radius: 8px; width: 100%; font-size: 1.1rem; font-weight: bold; cursor: pointer; }
-        
-        .hidden { display: none; }
+        #cart-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; padding: 20px; box-sizing: border-box; }
+        .modal-content { background: var(--card); max-width: 500px; margin: 40px auto; padding: 20px; border-radius: 15px; max-height: 80vh; overflow-y: auto; }
+        .btn-finalize { background: var(--success); color: white; border: none; padding: 15px; border-radius: 8px; width: 100%; font-size: 1.1rem; font-weight: bold; cursor: pointer; margin-top: 20px; }
     </style>
 </head>
 <body>
@@ -55,58 +56,63 @@
     </nav>
 
     <div id="sideMenu" class="side-menu">
-        <a onclick="showCategory('todos')">Todos los Productos</a>
-        <a onclick="showCategory('relojes')">Smartwatches</a>
-        <a onclick="showCategory('auriculares-vincha')">Auriculares (Vincha)</a>
-        <a onclick="showCategory('auriculares-oido')">Auriculares (De Oído)</a>
-        <a onclick="showCategory('cargadores')">Cargadores</a>
+        <a onclick="scrollToSection('relojes')">Smartwatches</a>
+        <a onclick="scrollToSection('vincha')">Auriculares Vincha</a>
+        <a onclick="scrollToSection('oido')">Auriculares de Oído</a>
+        <a onclick="scrollToSection('cargadores')">Cargadores</a>
+        <a onclick="scrollToSection('parlantes')">Parlantes</a>
+        <a onclick="scrollToSection('libreria')">Librería (Agendas)</a>
     </div>
 
     <div class="container">
-        <div id="relojes-sec">
-            <h2 class="category-title">Smartwatches</h2>
-            <div class="product-grid">
-                <div class="producto">
-                    <img src="1421.jpeg">
-                    <h3>Smartwatch Series Premium</h3>
-                    <p class="precio">$25.000</p>
-                    <div class="controls">
-                        <p class="stock-info">Stock: 5 disponibles</p>
-                        <input type="number" class="qty-input" value="1" min="1" id="qty-sw1">
-                        <button class="btn-add" onclick="addToCart('Smartwatch Premium', 25000, 'qty-sw1', 5)">Agregar al Carrito</button>
-                    </div>
+        <h2 class="category-title" id="relojes">Smartwatches</h2>
+        <div class="product-grid">
+            <div class="producto">
+                <div class="img-container"><img src="1421.jpeg"></div>
+                <h3>Smartwatch Series</h3>
+                <p class="precio">$25.000</p>
+                <div class="controls">
+                    <input type="number" class="qty-input" value="1" min="1" id="q_sw1">
+                    <button class="btn-add" onclick="addToCart('Smartwatch', 25000, 'q_sw1')">Agregar al Carrito</button>
                 </div>
             </div>
         </div>
 
-        <div id="auriculares-vincha-sec">
-            <h2 class="category-title">Auriculares de Vincha</h2>
-            <div class="product-grid">
-                <div class="producto">
-                    <img src="AURICULAR CAPIBARA CON BOLSO.jpeg">
-                    <h3>Auricular Capibara c/ Bolso</h3>
-                    <p class="precio">$18.500</p>
-                    <div class="controls">
-                        <p class="stock-info">Stock: 3 disponibles</p>
-                        <input type="number" class="qty-input" value="1" min="1" id="qty-cap1">
-                        <button class="btn-add" onclick="addToCart('Auricular Capibara c/ Bolso', 18500, 'qty-cap1', 3)">Agregar al Carrito</button>
-                    </div>
+        <h2 class="category-title" id="vincha">Auriculares Vincha</h2>
+        <div class="product-grid">
+            <div class="producto">
+                <div class="img-container"><img src="AURICULAR CAPIBARA CON BOLSO.jpeg"></div>
+                <h3>Auricular Capibara c/ Bolso</h3>
+                <p class="precio">$18.500</p>
+                <div class="controls">
+                    <input type="number" class="qty-input" value="1" min="1" id="q_av1">
+                    <button class="btn-add" onclick="addToCart('Auricular Capibara', 18500, 'q_av1')">Agregar al Carrito</button>
                 </div>
             </div>
         </div>
 
-        <div id="cargadores-sec">
-            <h2 class="category-title">Cargadores</h2>
-            <div class="product-grid">
-                <div class="producto">
-                    <img src="2222.jpeg">
-                    <h3>Cargador Rápido 20W</h3>
-                    <p class="precio">$8.900</p>
-                    <div class="controls">
-                        <p class="stock-info">Stock: 10 disponibles</p>
-                        <input type="number" class="qty-input" value="1" min="1" id="qty-char1">
-                        <button class="btn-add" onclick="addToCart('Cargador 20W', 8900, 'qty-char1', 10)">Agregar al Carrito</button>
-                    </div>
+        <h2 class="category-title" id="cargadores">Cargadores</h2>
+        <div class="product-grid">
+            <div class="producto">
+                <div class="img-container"><img src="2222.jpeg"></div>
+                <h3>Cargador Rápido 20W</h3>
+                <p class="precio">$8.900</p>
+                <div class="controls">
+                    <input type="number" class="qty-input" value="1" min="1" id="q_c1">
+                    <button class="btn-add" onclick="addToCart('Cargador 20W', 8900, 'q_c1')">Agregar al Carrito</button>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="category-title" id="libreria">Librería</h2>
+        <div class="product-grid">
+            <div class="producto">
+                <div class="img-container"><img src="AGENDAS.jpeg"></div>
+                <h3>Agenda 2026 Premium</h3>
+                <p class="precio">$5.500</p>
+                <div class="controls">
+                    <input type="number" class="qty-input" value="1" min="1" id="q_l1">
+                    <button class="btn-add" onclick="addToCart('Agenda 2026', 5500, 'q_l1')">Agregar al Carrito</button>
                 </div>
             </div>
         </div>
@@ -119,73 +125,69 @@
 
     <div id="cart-modal">
         <div class="modal-content">
-            <h2 style="color: var(--primary);">Tu Carrito</h2>
+            <h2 style="color: var(--primary);">Mi Pedido</h2>
             <div id="cart-items"></div>
             <hr>
-            <div class="shipping-options">
-                <p><strong>Elegir Medio de Envío:</strong></p>
-                <label><input type="radio" name="shipping" value="Correo Argentino" checked> Correo Argentino</label><br>
-                <label><input type="radio" name="shipping" value="Andreani"> Andreani</label><br>
-                <label><input type="radio" name="shipping" value="Vía Cargo"> Vía Cargo</label>
-            </div>
+            <p><strong>Envío por:</strong></p>
+            <select id="shipping" style="width:100%; padding:10px; background:#000; color:white;">
+                <option value="Correo Argentino">Correo Argentino</option>
+                <option value="Andreani">Andreani</option>
+                <option value="Vía Cargo">Vía Cargo</option>
+            </select>
             <h3>Total: $<span id="cart-total">0</span></h3>
-            <button class="btn-finalize" onclick="sendWhatsApp()">Finalizar Compra por WhatsApp</button>
-            <button onclick="toggleCart()" style="background:none; border:none; color:white; margin-top:15px; cursor:pointer;">Cerrar</button>
+            <button class="btn-finalize" onclick="sendWhatsApp()">Enviar a WhatsApp</button>
+            <button onclick="toggleCart()" style="margin-top:10px; background:none; border:none; color:gray; cursor:pointer;">Cerrar</button>
         </div>
     </div>
 
     <script>
         let cart = [];
-        const menu = document.getElementById('sideMenu');
 
         function toggleMenu() {
-            menu.style.left = menu.style.left === '0px' ? '-280px' : '0px';
+            document.getElementById('sideMenu').classList.toggle('open');
         }
 
-        function showCategory(cat) {
-            // Lógica simple para ocultar/mostrar secciones
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
             toggleMenu();
         }
 
-        function addToCart(name, price, qtyId, stock) {
-            const qty = parseInt(document.getElementById(qtyId).value);
-            if(qty > stock) {
-                alert("No hay suficiente stock disponible");
-                return;
-            }
+        function addToCart(name, price, id) {
+            const qty = parseInt(document.getElementById(id).value);
             cart.push({ name, price, qty });
             updateCart();
-            alert("Producto agregado!");
         }
 
         function updateCart() {
             document.getElementById('cart-count').innerText = cart.length;
-            const itemsDiv = document.getElementById('cart-items');
             let total = 0;
-            itemsDiv.innerHTML = "";
-            cart.forEach(item => {
+            let html = "";
+            cart.forEach((item, index) => {
                 total += (item.price * item.qty);
-                itemsDiv.innerHTML += <p>${item.qty}x ${item.name} - $${item.price * item.qty}</p>;
+                html += `<p>${item.qty}x ${item.name} - $${item.price * item.qty} 
+                         <span onclick="removeItem(${index})" style="color:red; cursor:pointer; margin-left:10px;">[x]</span></p>`;
             });
+            document.getElementById('cart-items').innerHTML = html || "El carrito está vacío";
             document.getElementById('cart-total').innerText = total;
         }
 
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
         function toggleCart() {
-            const modal = document.getElementById('cart-modal');
-            modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
+            const m = document.getElementById('cart-modal');
+            m.style.display = m.style.display === 'block' ? 'none' : 'block';
         }
 
         function sendWhatsApp() {
-            const shipping = document.querySelector('input[name="shipping"]:checked').value;
-            let text = "Hola SOLUCIONES.NET, quiero realizar este pedido:\n\n";
-            cart.forEach(item => {
-                text += - ${item.qty}x ${item.name} ($${item.price * item.qty})\n;
-            });
-            text += \nTotal: $${document.getElementById('cart-total').innerText};
-            text += \nEnvío por: ${shipping};
-            
-            const url = https://wa.me/543794517852?text=${encodeURIComponent(text)};
-            window.open(url, '_blank');
+            if(cart.length === 0) return alert("Carrito vacío");
+            const ship = document.getElementById('shipping').value;
+            let msg = "Hola SOLUCIONES.NET, mi pedido es:\n\n";
+            cart.forEach(i => msg += - ${i.qty}x ${i.name} ($${i.price * i.qty})\n);
+            msg += \nTotal: $${document.getElementById('cart-total').innerText}\nEnvío: ${ship};
+            window.open(https://wa.me/543794517852?text=${encodeURIComponent(msg)});
         }
     </script>
 </body>
