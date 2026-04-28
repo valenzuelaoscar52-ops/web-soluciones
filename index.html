@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+[12:24 a. m., 28/4/2026] Oscar: <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -58,5 +58,103 @@
             <a href="https://wa.me/543794517852?text=Necesito%20reparar%20un%20equipo" class="btn-ws">Pedir Presupuesto</a>
         </div>
     </div>
+</body>
+</html>
+[12:29 a. m., 28/4/2026] Oscar: https://valenzuelaoscar52-ops.github.io/web-soluciones/
+[12:32 a. m., 28/4/2026] Oscar: <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOLUCIONES.NET - Menú</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --primary: #00d4ff; --dark: #121212; --card: #1e1e1e; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: var(--dark); color: white; margin: 0; }
+        
+        /* Barra de Navegación y Menú */
+        nav { background: #000; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--primary); }
+        .menu-icon { font-size: 24px; cursor: pointer; color: var(--primary); }
+        
+        .side-menu { position: fixed; top: 0; right: -250px; width: 250px; height: 100%; background: #000; transition: 0.3s; padding-top: 60px; box-shadow: -2px 0 10px rgba(0,0,0,0.5); z-index: 999; }
+        .side-menu a { display: block; padding: 15px 25px; color: white; text-decoration: none; font-size: 18px; border-bottom: 1px solid #222; }
+        .side-menu a:hover { background: var(--card); color: var(--primary); }
+
+        /* Secciones */
+        .section { display: none; padding: 20px; animation: fadeIn 0.5s; }
+        .active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        header { text-align: center; padding: 40px 20px; }
+        h1 { color: var(--primary); margin: 0; }
+
+        /* Galería de Fotos */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+        .gallery-item img { width: 100%; border-radius: 8px; cursor: pointer; transition: 0.3s; }
+        .gallery-item img:hover { transform: scale(1.05); }
+
+        /* Tarjetas de Producto */
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .producto { background: var(--card); border-radius: 15px; padding: 15px; border: 1px solid #333; text-align: center; }
+        .producto img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; }
+        .btn-ws { background: #25d366; color: white; padding: 10px; text-decoration: none; border-radius: 8px; display: block; margin-top: 10px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <span style="font-weight: bold; color: var(--primary);">SOLUCIONES.NET</span>
+        <div class="menu-icon" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+    </nav>
+
+    <div id="sideMenu" class="side-menu">
+        <a href="#" onclick="showSection('inicio')">Inicio</a>
+        <a href="#" onclick="showSection('catalogo')">Ver Fotos (Catálogo)</a>
+        <a href="https://wa.me/543794517852" target="_blank">Contacto Directo</a>
+    </div>
+
+    <div id="inicio" class="section active">
+        <header>
+            <h1>Bienvenido a SOLUCIONES.NET</h1>
+            <p>Servicio Técnico y Ventas Especializadas</p>
+        </header>
+        <div class="product-grid">
+            <div class="producto">
+                <img src="AURICULAR CAPIBARA CON BOLSO.jpeg">
+                <h3>Auriculares Capibara</h3>
+                <p>Novedad exclusiva</p>
+                <a href="#" onclick="showSection('catalogo')" style="color: var(--primary);">Ver fotos del producto</a>
+                <a href="https://wa.me/543794517852" class="btn-ws">Comprar ahora</a>
+            </div>
+            </div>
+    </div>
+
+    <div id="catalogo" class="section">
+        <h2 style="text-align: center; color: var(--primary);">Galería de Productos</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="AURICULAR CAPIBARA CON BOLSO.jpeg"></div>
+            <div class="gallery-item"><img src="AURICULAR CAPIBARA SIN BOLSO.jpeg"></div>
+            <div class="gallery-item"><img src="AGENDAS.jpeg"></div>
+            <div class="gallery-item"><img src="1421.jpeg"></div>
+            <div class="gallery-item"><img src="2222.jpeg"></div>
+            <div class="gallery-item"><img src="3333333.jpeg"></div>
+            <div class="gallery-item"><img src="ACTION.jpeg"></div>
+        </div>
+        <button onclick="showSection('inicio')" style="margin-top: 20px; background: none; border: 1px solid white; color: white; padding: 10px; width: 100%;">Volver al Inicio</button>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('sideMenu');
+            menu.style.right = menu.style.right === '0px' ? '-250px' : '0px';
+        }
+
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            toggleMenu(); // Cierra el menú al elegir una opción
+        }
+    </script>
+
 </body>
 </html>
