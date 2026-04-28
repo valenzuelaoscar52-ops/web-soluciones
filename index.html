@@ -1,160 +1,192 @@
-[12:24 a. m., 28/4/2026] Oscar: <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOLUCIONES.NET - Catálogo Completo</title>
-    <style>
-        body { font-family: 'Segoe UI', sans-serif; background-color: #121212; color: white; text-align: center; margin: 0; padding: 20px; }
-        .header { border-bottom: 2px solid #00d4ff; padding-bottom: 20px; margin-bottom: 30px; }
-        h1 { color: #00d4ff; letter-spacing: 2px; }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
-        .producto { background: #1e1e1e; border: 1px solid #333; padding: 15px; border-radius: 15px; transition: 0.3s; }
-        .producto:hover { border-color: #00d4ff; transform: translateY(-5px); }
-        .producto img { width: 100%; height: 230px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; }
-        .btn-ws { background: #25d366; color: white; padding: 12px; text-decoration: none; border-radius: 8px; display: block; font-weight: bold; margin-top: 10px; }
-        .precio { color: #00d4ff; font-size: 1.3rem; font-weight: bold; }
-    </style>
-</head>
-<body>
-    <div class="header">
-        <h1>SOLUCIONES.NET</h1>
-        <p>Catálogo de Productos y Servicios</p>
-    </div>
-
-    <div class="product-grid">
-        <div class="producto">
-            <img src="AURICULAR CAPIBARA CON BOLSO.jpeg" alt="Auricular Capibara">
-            <h3>Auricular Capibara c/ Bolso</h3>
-            <span class="precio">Consultar</span>
-            <a href="https://wa.me/543794517852?text=Me%20interesa%20el%20Auricular%20Capibara" class="btn-ws">Pedir por WhatsApp</a>
-        </div>
-
-        <div class="producto">
-            <img src="AGENDAS.jpeg" alt="Agendas">
-            <h3>Agendas 2026</h3>
-            <span class="precio">Varios Diseños</span>
-            <a href="https://wa.me/543794517852?text=Quiero%20ver%20las%20agendas" class="btn-ws">Consultar Modelos</a>
-        </div>
-
-        <div class="producto">
-            <img src="1421.jpeg" alt="Smartwatch">
-            <h3>Smartwatches</h3>
-            <span class="precio">$25.000</span>
-            <a href="https://wa.me/543794517852?text=Me%20interesa%20el%20Smartwatch" class="btn-ws">Comprar</a>
-        </div>
-
-        <div class="producto">
-            <img src="2222.jpeg" alt="Cargadores">
-            <h3>Accesorios y Carga</h3>
-            <span class="precio">Originales</span>
-            <a href="https://wa.me/543794517852?text=Busco%20accesorios" class="btn-ws">Consultar</a>
-        </div>
-        
-        <div class="producto">
-            <img src="ACTION.jpeg" alt="Servicio Técnico">
-            <h3>Servicio Técnico PC/Celular</h3>
-            <span class="precio">Presupuesto Gratis</span>
-            <a href="https://wa.me/543794517852?text=Necesito%20reparar%20un%20equipo" class="btn-ws">Pedir Presupuesto</a>
-        </div>
-    </div>
-</body>
-</html>
-[12:29 a. m., 28/4/2026] Oscar: https://valenzuelaoscar52-ops.github.io/web-soluciones/
-[12:32 a. m., 28/4/2026] Oscar: <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOLUCIONES.NET - Menú</title>
+    <title>SOLUCIONES.NET - Tienda Oficial</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #00d4ff; --dark: #121212; --card: #1e1e1e; }
-        body { font-family: 'Segoe UI', sans-serif; background-color: var(--dark); color: white; margin: 0; }
+        :root { --primary: #00d4ff; --dark: #121212; --card: #1e1e1e; --success: #25d366; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: var(--dark); color: white; margin: 0; padding-top: 60px; }
         
-        /* Barra de Navegación y Menú */
-        nav { background: #000; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--primary); }
-        .menu-icon { font-size: 24px; cursor: pointer; color: var(--primary); }
-        
-        .side-menu { position: fixed; top: 0; right: -250px; width: 250px; height: 100%; background: #000; transition: 0.3s; padding-top: 60px; box-shadow: -2px 0 10px rgba(0,0,0,0.5); z-index: 999; }
-        .side-menu a { display: block; padding: 15px 25px; color: white; text-decoration: none; font-size: 18px; border-bottom: 1px solid #222; }
+        /* Navbar Superior Izquierda */
+        nav { background: #000; padding: 10px 20px; display: flex; align-items: center; position: fixed; top: 0; width: 100%; z-index: 1000; border-bottom: 1px solid var(--primary); box-sizing: border-box; }
+        .menu-icon { font-size: 24px; cursor: pointer; color: var(--primary); margin-right: 20px; }
+        .logo { font-weight: bold; color: var(--primary); font-size: 1.2rem; }
+
+        /* Menú Desplegable */
+        .side-menu { position: fixed; top: 0; left: -280px; width: 280px; height: 100%; background: #000; transition: 0.3s; padding-top: 70px; z-index: 999; box-shadow: 2px 0 10px rgba(0,0,0,0.5); }
+        .side-menu a { display: block; padding: 15px 25px; color: white; text-decoration: none; font-size: 16px; border-bottom: 1px solid #222; cursor: pointer; }
         .side-menu a:hover { background: var(--card); color: var(--primary); }
 
-        /* Secciones */
-        .section { display: none; padding: 20px; animation: fadeIn 0.5s; }
-        .active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        /* Contenedor Principal */
+        .container { padding: 20px; max-width: 1200px; margin: 0 auto; }
+        .category-title { color: var(--primary); border-left: 4px solid var(--primary); padding-left: 10px; margin: 30px 0 20px; text-transform: uppercase; }
 
-        header { text-align: center; padding: 40px 20px; }
-        h1 { color: var(--primary); margin: 0; }
+        /* Grilla de Productos */
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .producto { background: var(--card); border-radius: 15px; padding: 15px; border: 1px solid #333; display: flex; flex-direction: column; }
+        .producto img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; margin-bottom: 10px; }
+        
+        /* Controles de Compra */
+        .controls { margin-top: auto; padding-top: 10px; }
+        .stock-info { font-size: 0.8rem; color: #aaa; margin-bottom: 5px; }
+        .qty-input { width: 50px; padding: 5px; border-radius: 5px; border: none; margin-right: 10px; }
+        .btn-add { background: var(--primary); color: black; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; }
 
-        /* Galería de Fotos */
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
-        .gallery-item img { width: 100%; border-radius: 8px; cursor: pointer; transition: 0.3s; }
-        .gallery-item img:hover { transform: scale(1.05); }
+        /* Carrito Floating */
+        .cart-btn { position: fixed; bottom: 20px; right: 20px; background: var(--primary); color: black; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.5); z-index: 1001; }
+        .cart-count { position: absolute; top: 0; right: 0; background: red; color: white; font-size: 12px; padding: 3px 7px; border-radius: 50%; }
 
-        /* Tarjetas de Producto */
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .producto { background: var(--card); border-radius: 15px; padding: 15px; border: 1px solid #333; text-align: center; }
-        .producto img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; }
-        .btn-ws { background: #25d366; color: white; padding: 10px; text-decoration: none; border-radius: 8px; display: block; margin-top: 10px; font-weight: bold; }
+        /* Modal Carrito */
+        #cart-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; padding: 20px; box-sizing: border-box; overflow-y: auto; }
+        .modal-content { background: var(--card); max-width: 500px; margin: 40px auto; padding: 20px; border-radius: 15px; }
+        .shipping-options { margin: 20px 0; text-align: left; }
+        .btn-finalize { background: var(--success); color: white; border: none; padding: 15px; border-radius: 8px; width: 100%; font-size: 1.1rem; font-weight: bold; cursor: pointer; }
+        
+        .hidden { display: none; }
     </style>
 </head>
 <body>
 
     <nav>
-        <span style="font-weight: bold; color: var(--primary);">SOLUCIONES.NET</span>
         <div class="menu-icon" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        <div class="logo">SOLUCIONES.NET</div>
     </nav>
 
     <div id="sideMenu" class="side-menu">
-        <a href="#" onclick="showSection('inicio')">Inicio</a>
-        <a href="#" onclick="showSection('catalogo')">Ver Fotos (Catálogo)</a>
-        <a href="https://wa.me/543794517852" target="_blank">Contacto Directo</a>
+        <a onclick="showCategory('todos')">Todos los Productos</a>
+        <a onclick="showCategory('relojes')">Smartwatches</a>
+        <a onclick="showCategory('auriculares-vincha')">Auriculares (Vincha)</a>
+        <a onclick="showCategory('auriculares-oido')">Auriculares (De Oído)</a>
+        <a onclick="showCategory('cargadores')">Cargadores</a>
     </div>
 
-    <div id="inicio" class="section active">
-        <header>
-            <h1>Bienvenido a SOLUCIONES.NET</h1>
-            <p>Servicio Técnico y Ventas Especializadas</p>
-        </header>
-        <div class="product-grid">
-            <div class="producto">
-                <img src="AURICULAR CAPIBARA CON BOLSO.jpeg">
-                <h3>Auriculares Capibara</h3>
-                <p>Novedad exclusiva</p>
-                <a href="#" onclick="showSection('catalogo')" style="color: var(--primary);">Ver fotos del producto</a>
-                <a href="https://wa.me/543794517852" class="btn-ws">Comprar ahora</a>
+    <div class="container">
+        <div id="relojes-sec">
+            <h2 class="category-title">Smartwatches</h2>
+            <div class="product-grid">
+                <div class="producto">
+                    <img src="1421.jpeg">
+                    <h3>Smartwatch Series Premium</h3>
+                    <p class="precio">$25.000</p>
+                    <div class="controls">
+                        <p class="stock-info">Stock: 5 disponibles</p>
+                        <input type="number" class="qty-input" value="1" min="1" id="qty-sw1">
+                        <button class="btn-add" onclick="addToCart('Smartwatch Premium', 25000, 'qty-sw1', 5)">Agregar al Carrito</button>
+                    </div>
+                </div>
             </div>
-            </div>
-    </div>
-
-    <div id="catalogo" class="section">
-        <h2 style="text-align: center; color: var(--primary);">Galería de Productos</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item"><img src="AURICULAR CAPIBARA CON BOLSO.jpeg"></div>
-            <div class="gallery-item"><img src="AURICULAR CAPIBARA SIN BOLSO.jpeg"></div>
-            <div class="gallery-item"><img src="AGENDAS.jpeg"></div>
-            <div class="gallery-item"><img src="1421.jpeg"></div>
-            <div class="gallery-item"><img src="2222.jpeg"></div>
-            <div class="gallery-item"><img src="3333333.jpeg"></div>
-            <div class="gallery-item"><img src="ACTION.jpeg"></div>
         </div>
-        <button onclick="showSection('inicio')" style="margin-top: 20px; background: none; border: 1px solid white; color: white; padding: 10px; width: 100%;">Volver al Inicio</button>
+
+        <div id="auriculares-vincha-sec">
+            <h2 class="category-title">Auriculares de Vincha</h2>
+            <div class="product-grid">
+                <div class="producto">
+                    <img src="AURICULAR CAPIBARA CON BOLSO.jpeg">
+                    <h3>Auricular Capibara c/ Bolso</h3>
+                    <p class="precio">$18.500</p>
+                    <div class="controls">
+                        <p class="stock-info">Stock: 3 disponibles</p>
+                        <input type="number" class="qty-input" value="1" min="1" id="qty-cap1">
+                        <button class="btn-add" onclick="addToCart('Auricular Capibara c/ Bolso', 18500, 'qty-cap1', 3)">Agregar al Carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="cargadores-sec">
+            <h2 class="category-title">Cargadores</h2>
+            <div class="product-grid">
+                <div class="producto">
+                    <img src="2222.jpeg">
+                    <h3>Cargador Rápido 20W</h3>
+                    <p class="precio">$8.900</p>
+                    <div class="controls">
+                        <p class="stock-info">Stock: 10 disponibles</p>
+                        <input type="number" class="qty-input" value="1" min="1" id="qty-char1">
+                        <button class="btn-add" onclick="addToCart('Cargador 20W', 8900, 'qty-char1', 10)">Agregar al Carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart-btn" onclick="toggleCart()">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cart-count">0</span>
+    </div>
+
+    <div id="cart-modal">
+        <div class="modal-content">
+            <h2 style="color: var(--primary);">Tu Carrito</h2>
+            <div id="cart-items"></div>
+            <hr>
+            <div class="shipping-options">
+                <p><strong>Elegir Medio de Envío:</strong></p>
+                <label><input type="radio" name="shipping" value="Correo Argentino" checked> Correo Argentino</label><br>
+                <label><input type="radio" name="shipping" value="Andreani"> Andreani</label><br>
+                <label><input type="radio" name="shipping" value="Vía Cargo"> Vía Cargo</label>
+            </div>
+            <h3>Total: $<span id="cart-total">0</span></h3>
+            <button class="btn-finalize" onclick="sendWhatsApp()">Finalizar Compra por WhatsApp</button>
+            <button onclick="toggleCart()" style="background:none; border:none; color:white; margin-top:15px; cursor:pointer;">Cerrar</button>
+        </div>
     </div>
 
     <script>
+        let cart = [];
+        const menu = document.getElementById('sideMenu');
+
         function toggleMenu() {
-            const menu = document.getElementById('sideMenu');
-            menu.style.right = menu.style.right === '0px' ? '-250px' : '0px';
+            menu.style.left = menu.style.left === '0px' ? '-280px' : '0px';
         }
 
-        function showSection(sectionId) {
-            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-            document.getElementById(sectionId).classList.add('active');
-            toggleMenu(); // Cierra el menú al elegir una opción
+        function showCategory(cat) {
+            // Lógica simple para ocultar/mostrar secciones
+            toggleMenu();
+        }
+
+        function addToCart(name, price, qtyId, stock) {
+            const qty = parseInt(document.getElementById(qtyId).value);
+            if(qty > stock) {
+                alert("No hay suficiente stock disponible");
+                return;
+            }
+            cart.push({ name, price, qty });
+            updateCart();
+            alert("Producto agregado!");
+        }
+
+        function updateCart() {
+            document.getElementById('cart-count').innerText = cart.length;
+            const itemsDiv = document.getElementById('cart-items');
+            let total = 0;
+            itemsDiv.innerHTML = "";
+            cart.forEach(item => {
+                total += (item.price * item.qty);
+                itemsDiv.innerHTML += <p>${item.qty}x ${item.name} - $${item.price * item.qty}</p>;
+            });
+            document.getElementById('cart-total').innerText = total;
+        }
+
+        function toggleCart() {
+            const modal = document.getElementById('cart-modal');
+            modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function sendWhatsApp() {
+            const shipping = document.querySelector('input[name="shipping"]:checked').value;
+            let text = "Hola SOLUCIONES.NET, quiero realizar este pedido:\n\n";
+            cart.forEach(item => {
+                text += - ${item.qty}x ${item.name} ($${item.price * item.qty})\n;
+            });
+            text += \nTotal: $${document.getElementById('cart-total').innerText};
+            text += \nEnvío por: ${shipping};
+            
+            const url = https://wa.me/543794517852?text=${encodeURIComponent(text)};
+            window.open(url, '_blank');
         }
     </script>
-
 </body>
 </html>
